@@ -1,12 +1,29 @@
+"use client";
+
+import { useParams } from "next/navigation";
 import React from "react";
 
+interface Params {
+  [name: string]: string | undefined;
+}
+
 export default function Home() {
+  const { name } = useParams<Params>(); // Use the defined Params type
+  const nametobeprinted: string | undefined = name;
+  const decodedName: string = decodeURIComponent(nametobeprinted || "")
+    .replace(/%20/g, " ")
+    .trim();
+
+  // Capitalize the first letter and convert the rest to lowercase
+  const capitalized_name =
+    decodedName.charAt(0).toUpperCase() + decodedName.slice(1).toLowerCase();
+
   return (
     <div>
-      <h1 className="title">Happy Diwali</h1>
+      <h1 className="title">Happy Diwali {capitalized_name} !</h1>
       <p className="quote">
-        &quot; May the divine light of Diwali bring peace, prosperity, and happiness
-        to all.  &quot;
+        &quot; May the divine light of Diwali bring peace, prosperity, and
+        happiness to all. &quot;
       </p>
       <div className="container p1">
         <div className="box m2 d2">
