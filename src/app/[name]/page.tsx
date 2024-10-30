@@ -21,10 +21,10 @@ export default function Home() {
   return (
     <div>
       <h1 className="title">Happy Diwali {capitalized_name} !</h1>
-      <p className="quote">
+      {/* <p className="quote">
         &quot; May the divine light of Diwali bring peace, prosperity, and
         happiness to all. &quot;
-      </p>
+      </p> */}
       <div className="container p1">
         <div className="box m2 d2">
           <div className="cracker solid a1"></div>
